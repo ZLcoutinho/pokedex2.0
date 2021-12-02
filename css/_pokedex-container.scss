@@ -1,0 +1,232 @@
+.pokedex-container {
+    max-width: 488px;
+    width: 100%;
+    top: 58px;
+    right: 4px;
+    height: calc(603px - 133px);
+    cursor: pointer;
+    transform-origin: 100% 0;
+    position: relative;
+    transition: 1s;
+    z-index: 6;
+    perspective: 1000px;
+    border-bottom: 2px solid black;
+
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+        max-width: 500px;
+        left: 0px;
+        border: 2px solid black;
+    }
+
+    @media screen and (max-width: 623px) {
+        width: 90%;
+        top: 56px;
+    }
+
+    @media screen and (max-width: 400px) {
+        height: calc(80% - 109px);
+        min-height: 341px;
+    }
+
+
+    .pokedex__bar-right {
+        height: 100%;
+    }
+    
+    .pokedex-container-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        transform-origin: 100% 0;
+
+        &__front {
+            background-color: #DC0A2D;
+            width: 100%;
+            height: 100%;display: block;
+
+            figure {
+                height: 93%;
+                display: flex;
+                padding-left: 20px;
+
+                @media screen and (max-width: 1024px) {
+                    height: 100%;
+                    justify-content: center;
+                    align-items: flex-end;
+                    padding-bottom: 10px;
+                    
+                    img {
+                        transform: rotate(90deg);
+                    }
+                }
+                
+                img {
+                    width: 20px;
+                }
+            }
+
+            &__bar-bottom {
+                width: 251.34px;
+                height: 14.39px;
+                border-radius: 10px;
+                background-color: #A40520;
+                border: 2px solid black;
+                margin: 0 auto;
+                @media screen and (max-width: 1024px) {
+                    display: none;
+                }
+            }
+
+            
+        }
+        
+        &__inside-part {
+            width: 100%;
+            height: 100%;
+            padding: 5% 13%;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transform: rotateY(180deg);
+            background-color: #DC0A2D;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 1;
+
+            &::before {
+                width: 100%;
+                content: "";
+                right: 0;
+                height: 3px;
+                background-color: #A60822;
+                border-bottom: 1px solid black;
+                top: 0;
+                position: absolute;
+                z-index: 999;
+            }
+
+            &::after {
+                content: "";
+                width: 98%;
+                height: 97%;
+                border: 1px solid black;
+                right: 0;
+                bottom: 1%;
+                left: 0;
+                margin: auto;
+                position: absolute;
+                z-index: 999;
+            }
+
+            &__screen {
+                width: 100%;
+                height: 100px;
+                border-radius: 10px;
+                background-color: #232323;
+            }
+    
+            &__buttons-blue {
+                width: 100%;
+                height: 100px;
+                background-color: #50AAFD;
+                border: 3px solid #193F5B;
+                display: flex;
+                flex-wrap: wrap;
+    
+                .button {
+                    border: 1px solid #295F8C;
+                    width: 20%;
+                    height: 50%;
+                    cursor: pointer;
+                }
+            }
+    
+            &__sound-output-container {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                gap: 20px;
+
+               
+    
+                .sound-output {
+                    width: 70px;
+                    height: 10px;
+                    background-color: #232323;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                }
+            }
+            
+            &__buttons-gray {
+                display: flex;
+                justify-content: space-between;
+    
+                .squares-gray {
+                    border: 3px solid #4E5859;
+                    display: flex;
+                    background-color: #C4C4C4;
+                    width: 45%;
+    
+                    .square {
+                        width: 50%;
+                        height: 60px;
+                        border: 1px solid #828282;
+                    }
+                }
+    
+                .circle-gray {
+                    border: 2px solid #4E5859;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: #C4C4C4;
+                }
+            }
+    
+            &__buttons-black {
+                display: flex;
+                justify-content: space-between;
+    
+                .button-black {
+                    width: 45%;
+                    height: 60px;
+                    background-color: #232323;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+.pokedex_container-open-desktop {
+    transform: translateX(-45%);
+    border: 0px;
+
+    .pokedex-container-inner {
+        animation: pokedexOpenDesktop 2s forwards;
+    }
+}
+
+.pokedex_container-close-desktop {
+
+    .pokedex-container-inner {
+        animation: pokedexCloseDesktop 2s forwards;
+    }
+}
+
+.pokedex_container-open-tablet {
+    animation: pokedexOpenTablet 2s forwards;
+}
+
+.pokedex_container-close-tablet {
+    animation: pokedexCloseTablet 2s forwards;
+}

@@ -1,0 +1,140 @@
+@keyframes pokedexOpenDesktop {
+
+    14% {
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+        border-bottom: 2px solid black;}
+
+    50% {
+        left: 4px;
+        box-shadow: 10px 16px 17px -5px rgba(0,0,0,0.75);
+    }
+
+    100% {         
+        left: 4px;
+        transform: rotateY(180deg) ;
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+        border-bottom: 2px solid black;
+        box-shadow: 10px 16px 17px -5px rgba(0,0,0,0.75);
+    }   
+}
+
+@keyframes pokedexCloseDesktop {
+    0% { 
+        transform: rotateY(180deg) ; 
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+        border-bottom: 2px solid black;
+        box-shadow: 0px 16px 17px -5px rgba(0,0,0,0.75);
+        left: 4px;
+    }
+
+    50% {
+        left: 0px;
+        box-shadow: 0px 16px 17px -5px rgba(0,0,0,0.75);
+    }
+
+    88% {
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+
+    100% { 
+        transform: rotateY(0deg); 
+        border-top: 0;
+        border-left: 0;
+    }
+}
+
+@keyframes pokedexOpenTablet {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {         
+        z-index: 0;
+        transform: translateY(108%);
+        }
+
+    100% {         
+        transform: translateY(10%);
+        }
+}
+
+@keyframes pokedexCloseTablet {
+    0% { 
+        transform: translateY(10%);
+    }
+
+    50% {
+        z-index: 0;
+        transform: translateY(108%);
+    }
+
+    100% { 
+        transform: translateY(0);
+    }
+}
+
+@keyframes increaseZindexDesktop {
+    25% {
+        z-index: 0;
+    }
+
+    26% {
+        z-index: 11;
+    }
+
+    100% {
+        z-index: 11;
+    }
+}
+
+@keyframes decreaseZindexDesktop {
+    0% {
+        z-index: 11;
+    }
+     
+    45% {
+        z-index: 0;
+    }
+
+    100% {
+        z-index: 0;
+    }
+}
+
+@keyframes increaseZindexTablet {
+  
+    49% {
+        z-index: 0;
+    }
+
+    50% {
+        z-index: 11;
+    }
+
+    100% {
+        z-index: 11;
+    }
+}
+
+@keyframes decreaseZindexTablet  {
+    0% {
+        z-index: 11;
+    }
+
+    49% {
+        z-index: 11;
+    }
+
+    50% {
+        z-index: 0;
+    }
+
+    100% {
+        z-index: 0;
+    }
+}

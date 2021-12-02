@@ -1,0 +1,33 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'pixel', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 10px 0;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+@font-face {
+    font-family: 'pixel';
+    src: url('../font/PixeloidMono-1G8ae.ttf') format('truetype'), 
+         url('../font/PixeloidSans-nR3g1.ttf') format('truetype'), 
+         url('../font/PixeloidSansBold-RpeJo.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+
+@import 'colors';
+@import 'pokedex';
+@import 'pokedex-header';
+@import 'pokedex-inside';
+@import 'pokedex-container';
+@import 'pokedex-bar-right';
+@import 'pokedex-animations';
