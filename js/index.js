@@ -136,16 +136,24 @@ pokedex_container.addEventListener('click', () => {
     
 })
 
-if (window.innerWidth < 455) {
-    panel.addEventListener('click', event => {
-       Array.from(panel.children).forEach(div => div.classList.remove('selected'))
+const selectPokemonByClick = (event) => {
+    Array.from(panel.children).forEach(div => div.classList.remove('selected'))
 
-       const pokemonDiv = event.target.classList.contains('pokemon') ? event.target : event.target.parentElement
+    const pokemonDiv = event.target.classList.contains('pokemon') ? event.target : event.target.parentElement
 
-       pokemonDiv.classList.add('selected')
-        console.log(pokemonDiv)
-       insertInfoInHTML(pokemonDiv.id)
-    })
+    pokemonDiv.classList.add('selected')
+     console.log(pokemonDiv)
+    insertInfoInHTML(pokemonDiv.id)
+ }
+
+window.addEventListener('resize', () => {
+    if (window.outerWidth < 455) {
+        panel.addEventListener('click', event => selectPokemonByClick(event))
+    } 
+})
+
+if (window.outerWidth < 455) {
+    panel.addEventListener('click', event => selectPokemonByClick(event))
 }
 
 analogicControl.addEventListener('click', event => {
