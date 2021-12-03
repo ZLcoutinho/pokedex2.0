@@ -9,7 +9,7 @@ const getPokemons = (initialIndex, finalIndex) => {
 
     Promise.all(pokemonPromises)
         .then(pokemons => {
-            generatePokemonsInHTML(pokemons)
+            generatePokemonsDiv(pokemons)
             insertInfoInHTML(pokemons)
         })
 }
