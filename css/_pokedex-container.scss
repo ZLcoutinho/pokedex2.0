@@ -1,35 +1,20 @@
 .pokedex-container {
-    max-width: 488px;
-    width: 100%;
-    top: 58px;
-    right: 4px;
-    height: calc(603px - 133px);
+    width: calc(100% - 12px);
+    height: calc(100% - 130px);
+    top: 123px;
+    right: 10px;
     cursor: pointer;
     transform-origin: 100% 0;
-    position: relative;
+    position: absolute;
     transition: 1s;
     z-index: 6;
     perspective: 1000px;
     border-bottom: 2px solid black;
 
     @media screen and (max-width: 1024px) {
-        width: 100%;
-        max-width: 500px;
-        left: 0px;
-        border: 2px solid black;
+        width: calc(100% - 4px);
+        right: 2px;
     }
-
-    @media screen and (max-width: 623px) {
-        width: 90%;
-        top: 56px;
-    }
-
-    @media screen and (max-width: 400px) {
-        height: calc(80% - 156px);
-        top: 57px;
-        min-height: calc(450px - 109px);
-    }
-
 
     .pokedex__bar-right {
         height: 100%;

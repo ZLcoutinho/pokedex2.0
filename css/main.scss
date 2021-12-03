@@ -10,7 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    padding: 10px 0;
+    padding: 2% 2%;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -31,3 +31,14 @@ body {
 @import 'pokedex-container';
 @import 'pokedex-bar-right';
 @import 'pokedex-animations';
+
+.container {
+    width: 500px;
+    height: 600px;
+    position: relative;
+    
+    @media screen and (max-width:455px) {
+        width: 95%;
+        height: 80%;
+    }
+}

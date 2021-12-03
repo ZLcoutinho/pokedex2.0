@@ -5,7 +5,7 @@ pokedex_container.addEventListener('click', () => {
         'pokedex-close-desktop', pokedex)
 
         removeAndAddClass(pokedex_container.classList.contains('pokedex_container-open-desktop'), 
-        'pokedex_container-open-desktop', 'pokedex_container-open-desktop', pokedex_container)
+        'pokedex_container-open-desktop', 'pokedex_container-close-desktop', pokedex_container)
 
     } else {
         
