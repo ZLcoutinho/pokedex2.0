@@ -26,7 +26,7 @@
 
     @media screen and (max-width: 400px) {
         height: calc(80% - 109px);
-        min-height: 341px;
+        min-height: calc(450px - 109px);
     }
 
 

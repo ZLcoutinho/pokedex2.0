@@ -7,26 +7,6 @@ let panelScrollPosition = 0
 let positionMoveTop = 0
 let positionMoveBottom = 3
 
-
-const getPokemons = (initialIndex, finalIndex) => {
-    const getPokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`
-
-    const pokemonPromises = []
-
-    for (let i = initialIndex; i <= finalIndex; i++) {
-        pokemonPromises.push(fetch(getPokemonUrl(i)).then(response => response.json()))
-    }
-
-    Promise.all(pokemonPromises)
-        .then(pokemons => {
-            generatePokemonsInHTML(pokemons)
-            insertInfoInHTML(pokemons)
-        })
-}
-
-getPokemons(1, 100)
-setTimeout(() => { getPokemons(101, 150) }, (1000 * 10))
-
 const generatePokemonsInHTML = async (pokemons) => {
     const pokemonsHTML = await pokemons.map(pokemon => {
         if (pokemon.id === 1) {
@@ -49,16 +29,7 @@ const generatePokemonsInHTML = async (pokemons) => {
     })
 
 
-    pokemonsHTML.forEach((pokemon) => {
-
-            panel.innerHTML += pokemon
-
-    })
-
-    const pokemonDivSelected = document.querySelector('.selected')
-
-    console.log(pokemons[pokemonDivSelected.id - 1])
-
+    pokemonsHTML.forEach((pokemon) => panel.innerHTML += pokemon)
 }
 
 const insertInfoInHTML = async (pokemonID) => {
@@ -68,7 +39,6 @@ const insertInfoInHTML = async (pokemonID) => {
     const pokemonIMG = document.querySelector('.pokemonIMG')
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`)
     const pokemon = await response.json()
-    //console.log(pokemon.types)
 
     typeBackground.setAttribute('class', `pokedex-inside__screen-container__screen__type-container ${pokemon.types[0].type.name}`)
 
@@ -156,9 +126,11 @@ if (window.outerWidth < 455) {
     panel.addEventListener('click', event => selectPokemonByClick(event))
 }
 
-analogicControl.addEventListener('click', event => {
-    const clickBottomBtn = event.target.classList.contains('bottom')
-    const clickTopBtn = event.target.classList.contains('top')
+analogicControl.addEventListener('click', ({target}) => selectPokemon(target.classList.contains('bottom'), target.classList.contains('top')))
+
+const selectPokemon = (bottomBtn, topBtn) => {
+    const clickBottomBtn = bottomBtn
+    const clickTopBtn = topBtn
 
     const pokemonDivSelected = document.querySelector('.selected')
     const pokemonDivSelectedNextElement = pokemonDivSelected.nextElementSibling
@@ -174,8 +146,6 @@ analogicControl.addEventListener('click', event => {
         if ( Number(pokemonDivSelected.id ) <= positionMoveBottom - 2) {
             panelScrollPosition-= 26
             positionMoveBottom-= 1
-
-            console.log(panelScrollPosition, positionMoveBottom)
 
             panel.scrollTo(0, panelScrollPosition)
         }
@@ -198,5 +168,4 @@ analogicControl.addEventListener('click', event => {
     }
 
 
-})
-
+}
